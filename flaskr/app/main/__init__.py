@@ -25,10 +25,8 @@ def solved():
             board.setVal(intValues[i], (j-1), 0)
         else:
             board.setVal(intValues[i], (j-1), request.form[x])
-    test = board.toMap()
-    print(test)
-
-    return render_template('form.html', data=val)
+    values = board.toMap()
+    return render_template('solved.html', values=values)
 
 
 
