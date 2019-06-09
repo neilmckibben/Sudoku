@@ -26,11 +26,12 @@ class Sudoku:
 
 
     def toMap(self):
+        data = dict()
         for i in range(9):
             for j in range(9):
-
                 val =  intValues[i] + str(j+1)
-                print(val)
+                data[val] = self.board[i][j]
+        return data
 
     def setVal(self, i, j, val):
         self.board[i][j] = val
