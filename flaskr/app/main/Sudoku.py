@@ -45,7 +45,7 @@ class Sudoku:
                 return True
         return False
 
-    def unassigned(self, position):
+    def unassigned(self):
         for i in range(9):
             for j in range(9):
                 if(self.board[i][j] == 0):
@@ -74,7 +74,7 @@ class Sudoku:
         position = [0, 0]
 
         # If there is no unassigned location, we are done
-        if not self.unassigned(position):
+        if not self.unassigned():
             return True
 
         # Assigning list values to row and col that we got from the above Function
