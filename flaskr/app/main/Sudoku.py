@@ -12,17 +12,7 @@ class Sudoku:
 
     board = []
     def __init__(self):
-
-        self.board = [[3, 0, 6, 5, 0, 8, 4, 0, 0],
-                [5, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 8, 7, 0, 0, 0, 0, 3, 1],
-                [0, 0, 3, 0, 1, 0, 0, 8, 0],
-                [9, 0, 0, 8, 6, 3, 0, 0, 5],
-                [0, 5, 0, 0, 9, 0, 6, 0, 0],
-                [1, 3, 0, 0, 0, 0, 2, 5, 0],
-                [0, 0, 0, 0, 0, 0, 0, 7, 4],
-                [0, 0, 5, 2, 0, 6, 3, 0, 0]]
-        """self.board.append([1, 0, 0, 0, 0, 0, 0, 0, 0])
+        self.board.append([1, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -31,34 +21,6 @@ class Sudoku:
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
-
-
-        self.cols = self.digits
-        self.squares = self.cross(self.rows, self.cols)
-
-
-        self.unit_list = ([self.cross(self.rows, c) for c in self.cols] +
-                    [self.cross(r, self.cols) for r in self.rows] +
-                    [self.cross(rs, cs) for rs in ('ABC', 'DEF', 'GHI') for cs in ('123', '456', '789')])
-        self.units = dict((s, [u for u in self.unit_list if s in u])
-                     for s in self.squares)
-        self.peers = dict((s, set(sum(self.units[s], [])) - set([s]))
-                     for s in self.squares)
-        """
-
-    def cross(A, B):
-        "Cross product of elements in A and elements in B."
-        return [a + b for a in A for b in B]
-
-
-    def horizontal_check(self, i,j):
-        return self.master_number - set(self.board[i])
-
-    def vertical_check(self, i,j):
-        ret_set = []
-        for x in range(9):
-            ret_set.append(self.board[x][j])
-        return self.master_number - set(ret_set)
 
     def print_board(self):
         for i, row in enumerate(self.board):
@@ -127,8 +89,6 @@ class Sudoku:
         # consider digits 1 to 9
         for num in range(1, 10):
 
-            # if looks promising
-mmmm
             if (self.not_used(row, col, num)):
 
                 # make tentative assignment
