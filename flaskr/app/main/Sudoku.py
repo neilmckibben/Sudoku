@@ -12,7 +12,7 @@ class Sudoku:
 
     board = []
     def __init__(self):
-        self.board.append([1, 0, 0, 0, 0, 0, 0, 0, 0])
+        self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -22,19 +22,16 @@ class Sudoku:
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
 
+    def setVal(self, i, j, val):
+        self.board[i][j] = val
+
+
     def print_board(self):
-        for i, row in enumerate(self.board):
-            for j, val in enumerate(row):
-                if (j) % 3 == 0 and 0 < j < 8:
-                    print("|", end=' ')
-                print(val, end=' ')
-            print()
-            if (i - 2) % 3 == 0 and i < 8:
-                print("_____________________", end='')
-                print()
-            print()
-        print()
-        print("||||||||||||||||||||||")
+        count = 0
+        for i in range(9):
+            print('\n')
+            for j in range(9):
+                print(self.board[i][j], end = " ")
 
     def used_in_row(self, row, num):
         for i in range(9):
