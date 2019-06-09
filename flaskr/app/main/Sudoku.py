@@ -35,7 +35,6 @@ class Sudoku:
 
     def used_in_row(self, row, num):
         for i in range(9):
-            print(self.board[row][i])
             if (self.board[row][i] == num):
                 return True
         return False
@@ -60,7 +59,6 @@ class Sudoku:
         scaled_collum = ((col//3) * 3)
         for i in range(3):
             for j in range(3):
-                print(self.board[i + scaled_row][j + scaled_collum])
                 if (self.board[i + scaled_row][j + scaled_collum] == num):
                     return True
         return False

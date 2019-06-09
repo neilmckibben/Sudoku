@@ -22,8 +22,8 @@ def solved():
             board.setVal(intValues[i], (j-1), 0)
         else:
             board.setVal(intValues[i], (j-1), request.form[x])
-
-    board.print_board()
+    solved, board = board.solve_sudoku()
+    print(solved)
     return render_template('form.html', data=val)
 
 
