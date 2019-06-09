@@ -1,4 +1,6 @@
 import numpy
+intValues = { 0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H',
+            8: 'I' }
 class Sudoku:
     master_number = {1, 2, 3, 4, 5, 6, 7, 8, 9}
     board = []
@@ -21,6 +23,14 @@ class Sudoku:
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+
+    def toMap(self):
+        for i in range(9):
+            for j in range(9):
+
+                val =  intValues[i] + str(j+1)
+                print(val)
 
     def setVal(self, i, j, val):
         self.board[i][j] = val
@@ -45,7 +55,16 @@ class Sudoku:
                 return True
         return False
 
-    def unassigned(self):
+    def not_solved(self):
+        for i in range(9):
+            for j in range(9):
+                if(self.board[i][j] == 0):
+                    return True
+
+        return False
+
+
+    def unassigned(self, position):
         for i in range(9):
             for j in range(9):
                 if(self.board[i][j] == 0):
@@ -74,7 +93,7 @@ class Sudoku:
         position = [0, 0]
 
         # If there is no unassigned location, we are done
-        if not self.unassigned():
+        if not self.unassigned(position):
             return True
 
         # Assigning list values to row and col that we got from the above Function
