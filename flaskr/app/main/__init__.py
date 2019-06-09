@@ -3,6 +3,9 @@ from Sudoku import Sudoku
 
 intValues = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7,
             'I': 8 }
+
+stringValues = {0: 'A', 1: 'B', 2:
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,6 +27,11 @@ def solved():
             board.setVal(intValues[i], (j-1), request.form[x])
     solved, board = board.solve_sudoku()
     print(solved)
+    board.print_board()
+    val = map()
+    for i in range(9):
+        for j in range(9):
+
     return render_template('form.html', data=val)
 
 
