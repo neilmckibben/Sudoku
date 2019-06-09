@@ -1,4 +1,4 @@
-#!/home/neil/Documents/SudokuFlask/venv/bin/python
+#!/home/neil/Documents/SudokuFlask/flaskr/venv/bin/python
 
 import sys
 import getopt

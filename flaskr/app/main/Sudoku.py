@@ -96,26 +96,10 @@ class Sudoku:
 
                 # return, if success, ya!
                 if (self.solve_sudoku()):
-                    return True
+                    return True, self
 
                 # failure, unmake & try again
                 self.board[row][col] = 0
 
         # this triggers backtracking
-        return False
-
-
-
-
-def main():
-    print("Hello World!")
-    test = Sudoku()
-    test.print_board()
-    if(test.solve_sudoku()):
-            test.print_board()
-    else:
-        print("rip")
-
-
-if __name__== "__main__":
-  main()
+        return False, self

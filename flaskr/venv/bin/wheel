@@ -1,4 +1,4 @@
-#!/home/neil/Documents/SudokuFlask/venv/bin/python2
+#!/home/neil/Documents/SudokuFlask/flaskr/venv/bin/python3
 
 # -*- coding: utf-8 -*-
 import re

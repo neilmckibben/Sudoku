@@ -1,9 +1,5 @@
 from flask import Flask, render_template, request
-from flask_bootstrap import Bootstrap
-from flask_moment import Moment
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from Sudoku import Sudoku
 
 
 app = Flask(__name__)
@@ -16,6 +12,7 @@ def index():
 
 @app.route('/solved', methods=['GET', 'POST'])
 def solved():
+    board = Sudoku()
     val = ''
     if request.method == 'POST':
         val = request.form['A1']
