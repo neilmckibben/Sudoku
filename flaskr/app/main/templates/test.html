@@ -1,0 +1,188 @@
+<html language = "en">
+<style>
+table {
+  margin:1em auto;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+head{
+  text-align: center;
+}
+td {
+  height:30px;
+  width:30px;
+  border:1px solid;
+  text-align:center;
+}
+.entry{
+  width: 30px;
+}
+
+#sendInfo{
+  padding: 20px;
+  text-align: center;
+  width:200px;
+  margin:0 auto;
+}
+
+.test{
+
+}
+
+
+td:first-child {
+  border-left:solid;
+}
+td:nth-child(3n) {
+  border-right:solid ;
+}
+tr:first-child {
+  border-top:solid;
+}
+tr:nth-child(3n) td {
+  border-bottom:solid ;
+}
+</style>
+<head>
+    <title>Sudoku Board</title>
+</head>
+  <body>
+    <h1>
+      Sudoku
+    </h1>
+
+<form action="/solved" methon = "post" id="sudoku">
+      <table>
+        <tr id = "table">
+          <td>{{form.A1}}</td>
+          <td>{{form.A2}}</td>
+          <td>{{form.A3}}</td>
+
+          <td>{{form.A4}}</td>
+          <td>{{form.A5}}</td>
+          <td>{{form.A6}}</td>
+
+          <td>{{form.A7}}</td>
+          <td>{{form.A8}}</td>
+          <td>{{form.A9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.B1}}</td>
+          <td>{{form.B2}}</td>
+          <td>{{form.B3}}</td>
+
+          <td>{{form.B4}}</td>
+          <td>{{form.B5}}</td>
+          <td>{{form.B6}}</td>
+
+          <td>{{form.B7}}</td>
+          <td>{{form.B8}}</td>
+          <td>{{form.B9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.C1}}</td>
+          <td>{{form.C2}}</td>
+          <td>{{form.C3}}</td>
+
+          <td>{{form.C4}}</td>
+          <td>{{form.C5}}</td>
+          <td>{{form.C6}}</td>
+
+          <td>{{form.C7}}</td>
+          <td>{{form.C8}}</td>
+          <td>{{form.C9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.D1}}</td>
+          <td>{{form.D2}}</td>
+          <td>{{form.D3}}</td>
+
+          <td>{{form.D4}}</td>
+          <td>{{form.D5}}</td>
+          <td>{{form.D6}}</td>
+
+          <td>{{form.D7}}</td>
+          <td>{{form.D8}}</td>
+          <td>{{form.D9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.E1}}</td>
+          <td>{{form.E2}}</td>
+          <td>{{form.E3}}</td>
+
+          <td>{{form.E4}}</td>
+          <td>{{form.E5}}</td>
+          <td>{{form.E6}}</td>
+
+          <td>{{form.E7}}</td>
+          <td>{{form.E8}}</td>
+          <td>{{form.E9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.F1}}</td>
+          <td>{{form.F2}}</td>
+          <td>{{form.F3}}</td>
+
+          <td>{{form.F4}}</td>
+          <td>{{form.F5}}</td>
+          <td>{{form.F6}}</td>
+
+          <td>{{form.F7}}</td>
+          <td>{{form.F8}}</td>
+          <td>{{form.F9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.G1}}</td>
+          <td>{{form.G2}}</td>
+          <td>{{form.G3}}</td>
+
+          <td>{{form.G4}}</td>
+          <td>{{form.G5}}</td>
+          <td>{{form.G6}}</td>
+
+          <td>{{form.G7}}</td>
+          <td>{{form.G8}}</td>
+          <td>{{form.G9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.H1}}</td>
+          <td>{{form.H2}}</td>
+          <td>{{form.H3}}</td>
+
+          <td>{{form.H4}}</td>
+          <td>{{form.H5}}</td>
+          <td>{{form.H6}}</td>
+
+          <td>{{form.H7}}</td>
+          <td>{{form.H8}}</td>
+          <td>{{form.H9}}</td>
+        </tr>
+
+        <tr>
+          <td>{{form.I1}}</td>
+          <td>{{form.I2}}</td>
+          <td>{{form.I3}}</td>
+
+          <td>{{form.I4}}</td>
+          <td>{{form.I5}}</td>
+          <td>{{form.I6}}</td>
+
+          <td>{{form.I7}}</td>
+          <td>{{form.I8}}</td>
+          <td>{{form.I9}}</td>
+        </tr>
+  </table>
+  <div id = "sendInfo">
+    <input type="submit" value="Submit">
+  </div>
+
+</form>
+  </body>
+  </html>
