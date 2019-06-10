@@ -16,15 +16,14 @@ def index():
 def solved():
     board = Sudoku()
     if request.method == 'POST':
-        val = request.form['A1']
-
-    for x in request.form:
-        (i, j) = x
-        j = int(j)
-        if not request.form[x]:
-            board.setVal(intValues[i], (j-1), 0)
-        else:
-            board.setVal(intValues[i], (j-1), request.form[x])
+        for x in request.form:
+            (i, j) = x
+            j = int(j)
+            if request.form[x]:
+                board.setVal(intValues[i], (j-1), request.form[x])
+        board.print_board()
+    if(board.solve_sudoku()):
+            board.print_board()
     values = board.toMap()
     return render_template('solved.html', values=values)
 

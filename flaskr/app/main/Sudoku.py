@@ -24,7 +24,6 @@ class Sudoku:
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
 
-
     def toMap(self):
         data = dict()
         for i in range(9):
@@ -34,15 +33,32 @@ class Sudoku:
         return data
 
     def setVal(self, i, j, val):
+        print(i, j, val)
         self.board[i][j] = val
 
 
+    def horizontal_check(self, i,j):
+        return self.master_number - set(self.board[i])
+
+    def vertical_check(self, i,j):
+        ret_set = []
+        for x in range(9):
+            ret_set.append(self.board[x][j])
+        return self.master_number - set(ret_set)
+
     def print_board(self):
-        count = 0
-        for i in range(9):
-            print('\n')
-            for j in range(9):
-                print(self.board[i][j], end = " ")
+        for i, row in enumerate(self.board):
+            for j, val in enumerate(row):
+                if (j) % 3 == 0 and 0 < j < 8:
+                    print("|", end=' ')
+                print(val, end=' ')
+            print()
+            if (i - 2) % 3 == 0 and i < 8:
+                print("_____________________", end='')
+                print()
+            print()
+        print()
+        print("||||||||||||||||||||||")
 
     def used_in_row(self, row, num):
         for i in range(9):
@@ -55,15 +71,6 @@ class Sudoku:
             if (self.board[i][col] == num):
                 return True
         return False
-
-    def not_solved(self):
-        for i in range(9):
-            for j in range(9):
-                if(self.board[i][j] == 0):
-                    return True
-
-        return False
-
 
     def unassigned(self, position):
         for i in range(9):
@@ -104,6 +111,7 @@ class Sudoku:
         # consider digits 1 to 9
         for num in range(1, 10):
 
+            # if looks promising
             if (self.not_used(row, col, num)):
 
                 # make tentative assignment
@@ -111,10 +119,10 @@ class Sudoku:
 
                 # return, if success, ya!
                 if (self.solve_sudoku()):
-                    return True, self
+                    return True
 
                 # failure, unmake & try again
                 self.board[row][col] = 0
 
         # this triggers backtracking
-        return False, self
+        return False
