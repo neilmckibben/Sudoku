@@ -35,8 +35,9 @@ class Sudoku:
             j = int(j)
             print(x)
             if request.form[x]:
-                self.setVal(stringValues[i], (j-1), request.form[x])
-
+                self.setVal(stringValues[i], (j-1), int(request.form[x]))
+        self.test()
+        self.print_board()
         return self.toMap()
 
 
@@ -49,7 +50,6 @@ class Sudoku:
         return data
 
     def setVal(self, i, j, val):
-        print(i, j, val)
         self.board[i][j] = val
 
 
@@ -76,17 +76,17 @@ class Sudoku:
         print()
         print("||||||||||||||||||||||")
 
-    def used_in_row(self, row, num):
+    def not_used_in_row(self, row, num):
         for i in range(9):
             if (self.board[row][i] == num):
-                return True
-        return False
+                return False
+        return True
 
-    def used_in_col(self, col, num):
+    def not_used_in_col(self, col, num):
         for i in range(9):
             if (self.board[i][col] == num):
-                return True
-        return False
+                return False
+        return True
 
     def unassigned(self, position):
         for i in range(9):
@@ -94,20 +94,30 @@ class Sudoku:
                 if(self.board[i][j] == 0):
                     position[0] = i
                     position[1] = j
+                    print(i, j)
                     return True
         return False
 
-    def used_in_box(self,  row, col, num):
+    def not_used_in_box(self,  row, col, num):
         scaled_row = ((row//3) * 3)
         scaled_collum = ((col//3) * 3)
         for i in range(3):
             for j in range(3):
                 if (self.board[i + scaled_row][j + scaled_collum] == num):
-                    return True
-        return False
+                    return False
+        return True
 
     def not_used(self, row, col, num):
-        return not self.used_in_col(col, num) and not self.used_in_row(row, num) and not self.used_in_box(row, col, num)
+        print(self.not_used_in_row(row, num))
+        return self.not_used_in_col(col, num) and self.not_used_in_row(row, num) and self.not_used_in_box(row, col, num)
+
+    def test(self):
+        one = self.board[0]
+        for x in one:
+            print(x, type(x))
+        if 1 in one:
+            print('True')
+
 
     # Takes a partially filled-in grid and attempts to assign values to
     # all unassigned locations in such a way to meet the requirements
@@ -126,7 +136,6 @@ class Sudoku:
 
         # consider digits 1 to 9
         for num in range(1, 10):
-
             # if looks promising
             if (self.not_used(row, col, num)):
 
