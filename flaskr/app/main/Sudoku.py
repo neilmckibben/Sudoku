@@ -36,7 +36,7 @@ class Sudoku:
             print(x)
             if request.form[x]:
                 self.setVal(stringValues[i], (j-1), int(request.form[x]))
-        self.test()
+        self.solve_sudoku()
         self.print_board()
         return self.toMap()
 
