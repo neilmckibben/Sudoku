@@ -1,6 +1,11 @@
 import numpy
+from flask import Flask, render_template, request
 intValues = { 0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H',
             8: 'I' }
+stringValues = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7,
+            'I': 8 }
+
+
 class Sudoku:
     master_number = {1, 2, 3, 4, 5, 6, 7, 8, 9}
     board = []
@@ -23,6 +28,17 @@ class Sudoku:
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
         self.board.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+    def solve(self, request):
+        for x in request.form:
+            (i, j) = x
+            j = int(j)
+            print(x)
+            if request.form[x]:
+                self.setVal(stringValues[i], (j-1), request.form[x])
+
+        return self.toMap()
+
 
     def toMap(self):
         data = dict()
